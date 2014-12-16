@@ -26,6 +26,8 @@ delete_functions() {
         if [[ -f "${i}.R" ]]; then
             rm "${i}.R" && echo "Removed $i.R"
         fi
+# Delete export(ds.functionName) from NAMESPACE file
+	sed -i "/export(${i})/d" ../NAMESPACE
     done
 }
 
